@@ -15,6 +15,9 @@
 		66688A2424C111DF00F93471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66688A2224C111DF00F93471 /* LaunchScreen.storyboard */; };
 		66688A2F24C111DF00F93471 /* RestContriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A2E24C111DF00F93471 /* RestContriesTests.swift */; };
 		66688A3A24C111DF00F93471 /* RestContriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A3924C111DF00F93471 /* RestContriesUITests.swift */; };
+		66688A5B24C114BD00F93471 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A5A24C114BD00F93471 /* AppRoute.swift */; };
+		66688A5D24C114D900F93471 /* GeneralRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A5C24C114D900F93471 /* GeneralRoute.swift */; };
+		66688A5F24C114F300F93471 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A5E24C114F300F93471 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		66688A3524C111DF00F93471 /* RestContriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestContriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66688A3924C111DF00F93471 /* RestContriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestContriesUITests.swift; sourceTree = "<group>"; };
 		66688A3B24C111DF00F93471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66688A5A24C114BD00F93471 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
+		66688A5C24C114D900F93471 /* GeneralRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRoute.swift; sourceTree = "<group>"; };
+		66688A5E24C114F300F93471 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,10 @@
 		66688A1624C111D700F93471 /* RestContries */ = {
 			isa = PBXGroup;
 			children = (
-				66688A1724C111D700F93471 /* AppDelegate.swift */,
-				66688A1924C111D700F93471 /* SceneDelegate.swift */,
-				66688A1B24C111D700F93471 /* ViewController.swift */,
-				66688A1D24C111D700F93471 /* Main.storyboard */,
-				66688A2024C111DE00F93471 /* Assets.xcassets */,
-				66688A2224C111DF00F93471 /* LaunchScreen.storyboard */,
-				66688A2524C111DF00F93471 /* Info.plist */,
+				66688A5924C1149A00F93471 /* Shared */,
+				66688A4A24C1123400F93471 /* Conf */,
+				66688A4724C111F100F93471 /* AppSenes */,
+				66688A4B24C1124800F93471 /* Assets */,
 			);
 			path = RestContries;
 			sourceTree = "<group>";
@@ -126,6 +129,68 @@
 				66688A3B24C111DF00F93471 /* Info.plist */,
 			);
 			path = RestContriesUITests;
+			sourceTree = "<group>";
+		};
+		66688A4724C111F100F93471 /* AppSenes */ = {
+			isa = PBXGroup;
+			children = (
+				66688A4C24C1125D00F93471 /* Splash */,
+				66688A4924C1121300F93471 /* SearchCountry */,
+				66688A4824C1121000F93471 /* SelectedCountry */,
+			);
+			path = AppSenes;
+			sourceTree = "<group>";
+		};
+		66688A4824C1121000F93471 /* SelectedCountry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectedCountry;
+			sourceTree = "<group>";
+		};
+		66688A4924C1121300F93471 /* SearchCountry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchCountry;
+			sourceTree = "<group>";
+		};
+		66688A4A24C1123400F93471 /* Conf */ = {
+			isa = PBXGroup;
+			children = (
+				66688A1724C111D700F93471 /* AppDelegate.swift */,
+				66688A1924C111D700F93471 /* SceneDelegate.swift */,
+			);
+			path = Conf;
+			sourceTree = "<group>";
+		};
+		66688A4B24C1124800F93471 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				66688A2024C111DE00F93471 /* Assets.xcassets */,
+				66688A2224C111DF00F93471 /* LaunchScreen.storyboard */,
+				66688A2524C111DF00F93471 /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		66688A4C24C1125D00F93471 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				66688A1B24C111D700F93471 /* ViewController.swift */,
+				66688A1D24C111D700F93471 /* Main.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		66688A5924C1149A00F93471 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				66688A5A24C114BD00F93471 /* AppRoute.swift */,
+				66688A5C24C114D900F93471 /* GeneralRoute.swift */,
+				66688A5E24C114F300F93471 /* NetworkService.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				66688A1C24C111D700F93471 /* ViewController.swift in Sources */,
+				66688A5B24C114BD00F93471 /* AppRoute.swift in Sources */,
 				66688A1824C111D700F93471 /* AppDelegate.swift in Sources */,
+				66688A5D24C114D900F93471 /* GeneralRoute.swift in Sources */,
+				66688A5F24C114F300F93471 /* NetworkService.swift in Sources */,
 				66688A1A24C111D700F93471 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
