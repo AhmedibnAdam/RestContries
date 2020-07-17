@@ -18,6 +18,24 @@
 		66688A5B24C114BD00F93471 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A5A24C114BD00F93471 /* AppRoute.swift */; };
 		66688A5D24C114D900F93471 /* GeneralRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A5C24C114D900F93471 /* GeneralRoute.swift */; };
 		66688A5F24C114F300F93471 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A5E24C114F300F93471 /* NetworkService.swift */; };
+		66688A6824C11F8800F93471 /* SearchCountryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6024C11F8800F93471 /* SearchCountryConfiguration.swift */; };
+		66688A6924C11F8800F93471 /* SearchCountryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6124C11F8800F93471 /* SearchCountryPresenter.swift */; };
+		66688A6A24C11F8800F93471 /* SearchCountryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6224C11F8800F93471 /* SearchCountryWorker.swift */; };
+		66688A6B24C11F8800F93471 /* SearchCountryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6324C11F8800F93471 /* SearchCountryRouter.swift */; };
+		66688A6C24C11F8800F93471 /* SearchCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6424C11F8800F93471 /* SearchCountryViewController.swift */; };
+		66688A6D24C11F8800F93471 /* SearchCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6524C11F8800F93471 /* SearchCountryInteractor.swift */; };
+		66688A6E24C11F8800F93471 /* SearchCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A6624C11F8800F93471 /* SearchCountryModel.swift */; };
+		66688A6F24C11F8800F93471 /* SearchCountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66688A6724C11F8800F93471 /* SearchCountryViewController.xib */; };
+		66688A7924C1204D00F93471 /* SearchCountryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A7824C1204D00F93471 /* SearchCountryEndpoint.swift */; };
+		66688A8324C1209500F93471 /* SelectedCountryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A7B24C1209500F93471 /* SelectedCountryConfiguration.swift */; };
+		66688A8424C1209500F93471 /* SelectedCountryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A7C24C1209500F93471 /* SelectedCountryPresenter.swift */; };
+		66688A8524C1209500F93471 /* SelectedCountryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A7D24C1209500F93471 /* SelectedCountryWorker.swift */; };
+		66688A8624C1209500F93471 /* SelectedCountryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A7E24C1209500F93471 /* SelectedCountryRouter.swift */; };
+		66688A8724C1209500F93471 /* SelectedCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A7F24C1209500F93471 /* SelectedCountryViewController.swift */; };
+		66688A8824C1209500F93471 /* SelectedCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A8024C1209500F93471 /* SelectedCountryInteractor.swift */; };
+		66688A8924C1209500F93471 /* SelectedCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A8124C1209500F93471 /* SelectedCountryModel.swift */; };
+		66688A8A24C1209500F93471 /* SelectedCountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66688A8224C1209500F93471 /* SelectedCountryViewController.xib */; };
+		66688A9224C1211500F93471 /* SelectedCountryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A9124C1211500F93471 /* SelectedCountryEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +73,24 @@
 		66688A5A24C114BD00F93471 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		66688A5C24C114D900F93471 /* GeneralRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRoute.swift; sourceTree = "<group>"; };
 		66688A5E24C114F300F93471 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		66688A6024C11F8800F93471 /* SearchCountryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryConfiguration.swift; sourceTree = "<group>"; };
+		66688A6124C11F8800F93471 /* SearchCountryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryPresenter.swift; sourceTree = "<group>"; };
+		66688A6224C11F8800F93471 /* SearchCountryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryWorker.swift; sourceTree = "<group>"; };
+		66688A6324C11F8800F93471 /* SearchCountryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryRouter.swift; sourceTree = "<group>"; };
+		66688A6424C11F8800F93471 /* SearchCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryViewController.swift; sourceTree = "<group>"; };
+		66688A6524C11F8800F93471 /* SearchCountryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryInteractor.swift; sourceTree = "<group>"; };
+		66688A6624C11F8800F93471 /* SearchCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryModel.swift; sourceTree = "<group>"; };
+		66688A6724C11F8800F93471 /* SearchCountryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCountryViewController.xib; sourceTree = "<group>"; };
+		66688A7824C1204D00F93471 /* SearchCountryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryEndpoint.swift; sourceTree = "<group>"; };
+		66688A7B24C1209500F93471 /* SelectedCountryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryConfiguration.swift; sourceTree = "<group>"; };
+		66688A7C24C1209500F93471 /* SelectedCountryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryPresenter.swift; sourceTree = "<group>"; };
+		66688A7D24C1209500F93471 /* SelectedCountryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryWorker.swift; sourceTree = "<group>"; };
+		66688A7E24C1209500F93471 /* SelectedCountryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryRouter.swift; sourceTree = "<group>"; };
+		66688A7F24C1209500F93471 /* SelectedCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryViewController.swift; sourceTree = "<group>"; };
+		66688A8024C1209500F93471 /* SelectedCountryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryInteractor.swift; sourceTree = "<group>"; };
+		66688A8124C1209500F93471 /* SelectedCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryModel.swift; sourceTree = "<group>"; };
+		66688A8224C1209500F93471 /* SelectedCountryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedCountryViewController.xib; sourceTree = "<group>"; };
+		66688A9124C1211500F93471 /* SelectedCountryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +180,12 @@
 		66688A4824C1121000F93471 /* SelectedCountry */ = {
 			isa = PBXGroup;
 			children = (
+				66688A8F24C120DF00F93471 /* Configuration */,
+				66688A9024C120F300F93471 /* Presenter */,
+				66688A8D24C120CA00F93471 /* Services */,
+				66688A8E24C120D500F93471 /* Router */,
+				66688A8B24C120B300F93471 /* View */,
+				66688A8C24C120BC00F93471 /* Interactor */,
 			);
 			path = SelectedCountry;
 			sourceTree = "<group>";
@@ -151,6 +193,12 @@
 		66688A4924C1121300F93471 /* SearchCountry */ = {
 			isa = PBXGroup;
 			children = (
+				66688A7024C11F9A00F93471 /* Configuration */,
+				66688A7424C11FDB00F93471 /* View */,
+				66688A7524C11FEF00F93471 /* Interactor */,
+				66688A7124C11FAC00F93471 /* Presenter */,
+				66688A7324C11FC800F93471 /* Router */,
+				66688A7624C11FF800F93471 /* Services */,
 			);
 			path = SearchCountry;
 			sourceTree = "<group>";
@@ -191,6 +239,156 @@
 				66688A5E24C114F300F93471 /* NetworkService.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		66688A7024C11F9A00F93471 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6024C11F8800F93471 /* SearchCountryConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		66688A7124C11FAC00F93471 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6124C11F8800F93471 /* SearchCountryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		66688A7224C11FBA00F93471 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6224C11F8800F93471 /* SearchCountryWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		66688A7324C11FC800F93471 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6324C11F8800F93471 /* SearchCountryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		66688A7424C11FDB00F93471 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6424C11F8800F93471 /* SearchCountryViewController.swift */,
+				66688A6724C11F8800F93471 /* SearchCountryViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66688A7524C11FEF00F93471 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6524C11F8800F93471 /* SearchCountryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		66688A7624C11FF800F93471 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7724C1203000F93471 /* Model */,
+				66688A7224C11FBA00F93471 /* Worker */,
+				66688A7A24C1205500F93471 /* EndPoint */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		66688A7724C1203000F93471 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66688A6624C11F8800F93471 /* SearchCountryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66688A7A24C1205500F93471 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7824C1204D00F93471 /* SearchCountryEndpoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		66688A8B24C120B300F93471 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7F24C1209500F93471 /* SelectedCountryViewController.swift */,
+				66688A8224C1209500F93471 /* SelectedCountryViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66688A8C24C120BC00F93471 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				66688A8024C1209500F93471 /* SelectedCountryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		66688A8D24C120CA00F93471 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				66688A9524C1213400F93471 /* Worker */,
+				66688A9424C1212800F93471 /* Model */,
+				66688A9324C1211B00F93471 /* EndPoint */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		66688A8E24C120D500F93471 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7E24C1209500F93471 /* SelectedCountryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		66688A8F24C120DF00F93471 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7B24C1209500F93471 /* SelectedCountryConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		66688A9024C120F300F93471 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7C24C1209500F93471 /* SelectedCountryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		66688A9324C1211B00F93471 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				66688A9124C1211500F93471 /* SelectedCountryEndpoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		66688A9424C1212800F93471 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66688A8124C1209500F93471 /* SelectedCountryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66688A9524C1213400F93471 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				66688A7D24C1209500F93471 /* SelectedCountryWorker.swift */,
+			);
+			path = Worker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +496,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66688A2424C111DF00F93471 /* LaunchScreen.storyboard in Resources */,
+				66688A6F24C11F8800F93471 /* SearchCountryViewController.xib in Resources */,
 				66688A2124C111DE00F93471 /* Assets.xcassets in Resources */,
+				66688A8A24C1209500F93471 /* SelectedCountryViewController.xib in Resources */,
 				66688A1F24C111D700F93471 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,12 +524,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66688A6A24C11F8800F93471 /* SearchCountryWorker.swift in Sources */,
+				66688A7924C1204D00F93471 /* SearchCountryEndpoint.swift in Sources */,
+				66688A8624C1209500F93471 /* SelectedCountryRouter.swift in Sources */,
+				66688A8524C1209500F93471 /* SelectedCountryWorker.swift in Sources */,
+				66688A6D24C11F8800F93471 /* SearchCountryInteractor.swift in Sources */,
 				66688A1C24C111D700F93471 /* ViewController.swift in Sources */,
+				66688A6E24C11F8800F93471 /* SearchCountryModel.swift in Sources */,
+				66688A6924C11F8800F93471 /* SearchCountryPresenter.swift in Sources */,
+				66688A6B24C11F8800F93471 /* SearchCountryRouter.swift in Sources */,
 				66688A5B24C114BD00F93471 /* AppRoute.swift in Sources */,
+				66688A8924C1209500F93471 /* SelectedCountryModel.swift in Sources */,
+				66688A8824C1209500F93471 /* SelectedCountryInteractor.swift in Sources */,
 				66688A1824C111D700F93471 /* AppDelegate.swift in Sources */,
 				66688A5D24C114D900F93471 /* GeneralRoute.swift in Sources */,
+				66688A9224C1211500F93471 /* SelectedCountryEndpoint.swift in Sources */,
+				66688A6C24C11F8800F93471 /* SearchCountryViewController.swift in Sources */,
+				66688A8724C1209500F93471 /* SelectedCountryViewController.swift in Sources */,
 				66688A5F24C114F300F93471 /* NetworkService.swift in Sources */,
+				66688A8324C1209500F93471 /* SelectedCountryConfiguration.swift in Sources */,
 				66688A1A24C111D700F93471 /* SceneDelegate.swift in Sources */,
+				66688A8424C1209500F93471 /* SelectedCountryPresenter.swift in Sources */,
+				66688A6824C11F8800F93471 /* SearchCountryConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
