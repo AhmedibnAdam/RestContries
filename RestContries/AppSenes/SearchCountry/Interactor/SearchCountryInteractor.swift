@@ -12,9 +12,11 @@ import UIKit
 
 protocol ISearchCountryInteractor: class {
 	var parameters: [String: Any]? { get set }
+    func getAllCountries()
 }
 
 class SearchCountryInteractor: ISearchCountryInteractor {
+
     var presenter: ISearchCountryPresenter?
     var worker: ISearchCountryWorker?
     var parameters: [String: Any]?
@@ -23,4 +25,15 @@ class SearchCountryInteractor: ISearchCountryInteractor {
     	self.presenter = presenter
     	self.worker = worker
     }
+    func getAllCountries() {
+        worker?.getAllCountries(complition: { (error, success, countries) in
+            if success {
+                self.presenter?.showCountries(countries: countries)
+            }
+            else {
+                
+            }
+        })
+    }
+    
 }

@@ -11,9 +11,25 @@
 import Foundation
 
 protocol ISearchCountryWorker: class {
-	// do someting...
+	func getAllCountries(complition :  @escaping (_ error:Error? ,_ success: Bool,_ data: [SearchCountryModel.CountryModel]?)->Void)
 }
 
 class SearchCountryWorker: ISearchCountryWorker {
-	// do someting...
+    func getAllCountries(complition :  @escaping (_ error:Error? ,_ success: Bool,_ data: [SearchCountryModel.CountryModel]?)->Void){
+        NetworkService.share.request(endpoint: SearchCountryEndpoint.allCountries, success: { (responseData) in
+            let response = responseData
+            do {
+                let decoder = JSONDecoder()
+                let countries = try decoder.decode([SearchCountryModel.CountryModel].self, from: response)
+                print(countries)
+                complition(nil, true, countries)
+                
+            } catch let error {
+                print(error)
+            }
+            
+        }) { (error) in
+            print(error as Any)
+        }
+    }
 }

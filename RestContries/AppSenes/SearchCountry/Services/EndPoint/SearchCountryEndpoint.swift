@@ -12,73 +12,57 @@ import Foundation
 import Alamofire
 
 enum SearchCountryEndpoint {
-    /*
-     Add Endpoint
-     case sample
-     case sample(parameter: [String: Any])
-    */
+   
+     case allCountries
+   
 }
 
 extension SearchCountryEndpoint: IEndpoint {
     var method: HTTPMethod {
-        /*
-        Do like this:
-
         switch self {
-        case .sample:
+        case .allCountries:
             return .get
         }
-        */
-        return .get
+       
+        
     }
+    var image: UIImage? {
+          return nil
+      }
     
     var path: String {
-        /*
-        Do like this:
+        
 
         switch self {
-        case .sample:
-            return "https://httpbin.org/get"
+        case .allCountries:
+            return Constant.base + Constant.api + Constant.version + "regionalbloc/EU"
         }
-        */
-        return ""
     }
     
     var parameter: Parameters? {
-        /*
-        Do like this:
-
+       
         switch self {
-        case .sample(let model):
-            return model.parameter()
+        case .allCountries:
+            return nil
         }
-        */
-        return nil
+        
     }
     
     var header: HTTPHeaders? {
-        /*
-        Do like this:
 
         switch self {
-        case .sample:
-            return ["key": Any]
+        case .allCountries:
+            return nil
         }
-        */
-        return nil
+      
     }
     
     var encoding: ParameterEncoding {        
-        /*
-        Do like this:
-        
-        return URLEncoding.queryString for URL Query
-        
+
         switch self {
-        case .sample:
+        case .allCountries:
             return JSONEncoding.default
         }
-        */
-        return JSONEncoding.default
+
     }
 }

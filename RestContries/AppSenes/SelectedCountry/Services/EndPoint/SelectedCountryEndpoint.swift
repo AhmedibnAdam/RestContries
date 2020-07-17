@@ -20,6 +20,10 @@ enum SelectedCountryEndpoint {
 }
 
 extension SelectedCountryEndpoint: IEndpoint {
+    var image: UIImage? {
+        return nil
+    }
+    
     var method: HTTPMethod {
         /*
         Do like this:
@@ -31,7 +35,7 @@ extension SelectedCountryEndpoint: IEndpoint {
         */
         return .get
     }
-    
+   
     var path: String {
         /*
         Do like this:

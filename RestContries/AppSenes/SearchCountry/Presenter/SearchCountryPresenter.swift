@@ -11,13 +11,19 @@
 import UIKit
 
 protocol ISearchCountryPresenter: class {
-	// do someting...
+    func showCountries(countries: [SearchCountryModel.CountryModel]?)
 }
 
-class SearchCountryPresenter: ISearchCountryPresenter {	
-	weak var view: ISearchCountryViewController?
-	
-	init(view: ISearchCountryViewController?) {
-		self.view = view
-	}
+class SearchCountryPresenter: ISearchCountryPresenter {
+    
+    
+    weak var view: ISearchCountryViewController?
+    
+    init(view: ISearchCountryViewController?) {
+        self.view = view
+    }
+    
+    func showCountries(countries: [SearchCountryModel.CountryModel]?) {
+        view?.showCountries(countries: countries)
+    }
 }
