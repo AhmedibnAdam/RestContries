@@ -17,10 +17,24 @@ protocol ISelectedCountryViewController: class {
 class SelectedCountryViewController: UIViewController {
 	var interactor: ISelectedCountryInteractor?
 	var router: ISelectedCountryRouter?
+    var parameters: [String: Any]?
+    
+    @IBOutlet weak var capital: UILabel!
+    @IBOutlet weak var currency: UILabel!
+    
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		// do someting...
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBar()
+        showData()
+    }
+    func showData(){
+        guard let capital = parameters?["capital"] else { return  }
+        guard let currency = parameters?["currency"] else { return  }
+        self.capital.text = capital as? String
+        self.currency.text = currency as? String
     }
 }
 
@@ -29,7 +43,12 @@ extension SelectedCountryViewController: ISelectedCountryViewController {
 }
 
 extension SelectedCountryViewController {
-	// do someting...
+	 func setupNavigationBar() {
+        guard let name =  parameters?["name"] else {
+            return
+        }
+        navigationItem.title = name as? String
+       }
 }
 
 extension SelectedCountryViewController {

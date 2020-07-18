@@ -19,6 +19,7 @@ class SelectedCountryConfiguration {
         let worker = SelectedCountryWorker()
         let interactor = SelectedCountryInteractor(presenter: presenter, worker: worker)
         
+        controller.parameters = parameters
         controller.interactor = interactor
         controller.router = router
         interactor.parameters = parameters

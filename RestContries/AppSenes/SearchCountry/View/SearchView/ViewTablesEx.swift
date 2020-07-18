@@ -9,35 +9,28 @@
 import UIKit
 
 extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSource {
-       func registerTableCell() {
-         let cell = UINib(nibName: "SearchTableViewCell", bundle: nil)
-         tableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
-        favoritesTableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
-     }
-    
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView{
             return allCountries.count
         }
         else {
             if networkAvaiability {
-            return myVavoriteCountries.count
+                return myVavoriteCountries.count
             }
             else {
                 return realmCharacters.count
             }
-
         }
-     }
+    }
     
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == self.tableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
-             cell.name.text = self.allCountries[indexPath.row].name
-             cell.addToFavorite.tag = indexPath.row
+            cell.name.text = self.allCountries[indexPath.row].name
+            cell.addToFavorite.tag = indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(addToFavorite(_:)), for: .touchUpInside)
             return cell
         }
@@ -55,19 +48,19 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
             cellF.addToFavorite.addTarget(self, action: #selector(removeFromList(_:)), for: .touchUpInside)
             return cellF
         }
-   
+        
     }
     
     @objc func addToFavorite(_ sender: UIButton){
-   
+        
         myVavoriteCountries.append(allCountries[sender.tag])
         let unique = Array(Set(myVavoriteCountries))
         myVavoriteCountries = unique
         for country in myVavoriteCountries {
-                 allCountries.append(country)
+            allCountries.append(country)
             self.interactor?.getFromCashed(country: country )
             
-             }
+        }
         favoritesTableView.reloadData()
         tableView.hide()
     }
@@ -76,9 +69,15 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         
         favoritesTableView.reloadData()
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if tableView == self.favoritesTableView {
+         let country = self.myVavoriteCountries[indexPath.row]
+
+            let parameters: [String : Any]  = ["name": country.name,
+                          "currency": country.currencies?[0].name,
+                          "capital":country.capital]
+            router?.navigateToSelectedCountry(parameters: parameters)
     }
-   
+    }
 }

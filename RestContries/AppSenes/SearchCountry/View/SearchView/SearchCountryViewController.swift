@@ -13,17 +13,17 @@ import Reachability
 import CoreLocation
 
 protocol ISearchCountryViewController: class {
-	var router: ISearchCountryRouter? { get set }
+    var router: ISearchCountryRouter? { get set }
     func showCountries(countries: [SearchCountryModel.CountryModel]?)
 }
 
 class SearchCountryViewController: UIViewController {
     
-      // MARK: - configration
-	var interactor: ISearchCountryInteractor?
-	var router: ISearchCountryRouter?
+    // MARK: - configration
+    var interactor: ISearchCountryInteractor?
+    var router: ISearchCountryRouter?
     
-      // MARK: - proparites
+    // MARK: - proparites
     var reachability: Reachability?
     var networkAvaiability = true
     var allCountries = [SearchCountryModel.CountryModel]()
@@ -33,13 +33,13 @@ class SearchCountryViewController: UIViewController {
     let hostNames = [nil, "restcountries.eu", "invalidhost"]
     var hostIndex = 0
     let locationManager = CLLocationManager()
-
-         // MARK: - outlets
+    
+    // MARK: - outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var favoritesTableView: UITableView!
     
-         // MARK: - view life cycle
+    // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -48,10 +48,10 @@ class SearchCountryViewController: UIViewController {
         getCurrentCountryInfo()
         getCountries()
         searchBar.delegate = self
-
+        
     }
     
-
+    
     func getCountries(){
         reachability = try? Reachability()
         if let reachable = reachability?.isReachable{
@@ -64,17 +64,17 @@ class SearchCountryViewController: UIViewController {
                 networkAvaiability = false
                 self.realmCharacters = RealmManager.shared.getObjectOf(type: RealmCountryModel.self)
                 let unique = Array(Set(realmCharacters))
-                      realmCharacters = unique
+                realmCharacters = unique
                 favoritesTableView.reloadData()
             }
         }
-      
+        
     }
     
     deinit {
-           stopNotifier()
-       }
-        
+        stopNotifier()
+    }
+    
 }
 
 
@@ -82,6 +82,11 @@ extension SearchCountryViewController {
     func setupNavigationBar() {
         navigationItem.title = "Countries"
     }
+    func registerTableCell() {
+          let cell = UINib(nibName: "SearchTableViewCell", bundle: nil)
+          tableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
+         favoritesTableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
+      }
 }
 
 
@@ -103,22 +108,31 @@ extension SearchCountryViewController: CLLocationManagerDelegate{
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
-        CLGeocoder().reverseGeocodeLocation(locationManager.location!, preferredLocale: nil) { (clPlacemark: [CLPlacemark]?, error: Error?) in
-            guard let place = clPlacemark?.first else {
-                print("No placemark from Apple: \(String(describing: error))")
-                return
+        if let location = locationManager.location {
+            
+            CLGeocoder().reverseGeocodeLocation(location, preferredLocale: nil) { (clPlacemark: [CLPlacemark]?, error: Error?) in
+                guard let place = clPlacemark?.first else {
+                    print("No placemark from Apple: \(String(describing: error))")
+                    return
+                }
+                print(place.country!)
+                print(place.name!)
+                self.myCountry = SearchCountryModel.CountryModel(name: place.country!,
+                                                                 capital: "No data about capital",
+                                                                 currencies: [SearchCountryModel.Currency(code: "No curancy", name: "No curancy", symbol: "")] )
+                self.myVavoriteCountries.append(self.myCountry!)
+                self.favoritesTableView.reloadData()
             }
-            print(place.country!)
-            print(place.name!)
-            self.myCountry = SearchCountryModel.CountryModel(name: place.country!,
-                                                        capital: "",
-                                                        currencies: [SearchCountryModel.Currency(code: "", name: "", symbol: "")] )
-            self.myVavoriteCountries.append(self.myCountry!)
-            self.favoritesTableView.reloadData()
+        }else{
+            self.myCountry = SearchCountryModel.CountryModel(name: "Egypt",
+                                                                            capital: "Cairo",
+                                                                            currencies: [SearchCountryModel.Currency(code: "EGP", name: "Egyption Pound", symbol: "")] )
+                           self.myVavoriteCountries.append(self.myCountry!)
+                           self.favoritesTableView.reloadData()
         }
     }
 }
+
 
 
 extension SearchCountryViewController: ISearchCountryViewController {

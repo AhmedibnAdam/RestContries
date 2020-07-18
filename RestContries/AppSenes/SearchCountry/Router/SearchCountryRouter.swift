@@ -11,7 +11,7 @@
 import UIKit
 
 protocol ISearchCountryRouter: class {
-	// do someting...
+    func navigateToSelectedCountry(parameters: [String: Any])
 }
 
 class SearchCountryRouter: ISearchCountryRouter {	
@@ -20,4 +20,9 @@ class SearchCountryRouter: ISearchCountryRouter {
 	init(view: SearchCountryViewController?) {
 		self.view = view
 	}
+    
+    func navigateToSelectedCountry(parameters: [String: Any]){
+      
+        view?.navigate(type: .push, module: GeneralRoute.selectedCountry(parameter: parameters), completion: nil)
+    }
 }
