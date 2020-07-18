@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6656F45D24C373F200F44D06 /* TestCallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6656F45C24C373F200F44D06 /* TestCallApi.swift */; };
 		66688A1824C111D700F93471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A1724C111D700F93471 /* AppDelegate.swift */; };
 		66688A1A24C111D700F93471 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A1924C111D700F93471 /* SceneDelegate.swift */; };
 		66688A1C24C111D700F93471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A1B24C111D700F93471 /* ViewController.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		2C66DDB739D1DA293543BAE9 /* Pods_RestContries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestContries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4623FCFD33F1C266DF9AF374 /* Pods-RestContriesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestContriesTests.release.xcconfig"; path = "Target Support Files/Pods-RestContriesTests/Pods-RestContriesTests.release.xcconfig"; sourceTree = "<group>"; };
+		6656F45C24C373F200F44D06 /* TestCallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestCallApi.swift; path = /Users/Adam/Adamable_/a/RestContries/RestContriesTests/TestCallApi.swift; sourceTree = "<absolute>"; };
 		66688A1424C111D700F93471 /* RestContries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestContries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66688A1724C111D700F93471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66688A1924C111D700F93471 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		66688A2D24C111DF00F93471 /* RestContriesTests */ = {
 			isa = PBXGroup;
 			children = (
+				6656F45C24C373F200F44D06 /* TestCallApi.swift */,
 				66688A2E24C111DF00F93471 /* RestContriesTests.swift */,
 				66688A3024C111DF00F93471 /* Info.plist */,
 			);
@@ -777,6 +780,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6656F45D24C373F200F44D06 /* TestCallApi.swift in Sources */,
 				66688A2F24C111DF00F93471 /* RestContriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

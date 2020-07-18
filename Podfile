@@ -10,6 +10,7 @@ target 'RestContries' do
   pod 'Alamofire', '~> 4.9.1'
   pod 'SwiftyJSON'
    pod 'RealmSwift'
+    pod 'OHHTTPStubs/Swift'
   # Pods for RestContries
 
   target 'RestContriesTests' do
