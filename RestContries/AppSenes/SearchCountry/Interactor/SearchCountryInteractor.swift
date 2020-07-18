@@ -13,9 +13,11 @@ import UIKit
 protocol ISearchCountryInteractor: class {
 	var parameters: [String: Any]? { get set }
     func getAllCountries()
+    func getFromCashed(country: SearchCountryModel.CountryModel )
 }
 
 class SearchCountryInteractor: ISearchCountryInteractor {
+ 
 
     var presenter: ISearchCountryPresenter?
     var worker: ISearchCountryWorker?
@@ -38,5 +40,28 @@ class SearchCountryInteractor: ISearchCountryInteractor {
             }
         })
     }
+    
+    func getFromCashed(country: SearchCountryModel.CountryModel) {
+        
+        let realmObject = RealmCountryModel()
+        guard let name = country.name else {
+            return
+        }
+        guard let capital = country.capital else {
+            return
+        }
+        guard let cur = country.currencies?[0].name  else {
+            return
+        }
+        realmObject.name = name
+        realmObject.capital = capital
+        realmObject.currencies = cur
+        RealmManager.shared.addObject(realmObject: realmObject , andCompletion : {
+            (addResult) in
+            print(addResult)
+        } )
+        
+    }
+     
     
 }

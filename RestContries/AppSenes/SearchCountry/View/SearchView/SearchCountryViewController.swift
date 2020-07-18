@@ -17,11 +17,15 @@ protocol ISearchCountryViewController: class {
     func showCountries(countries: [SearchCountryModel.CountryModel]?)
 }
 
-class SearchCountryViewController: UIViewController, CLLocationManagerDelegate {
+class SearchCountryViewController: UIViewController {
+    
+      // MARK: - configration
 	var interactor: ISearchCountryInteractor?
 	var router: ISearchCountryRouter?
-    var reachability: Reachability?
     
+      // MARK: - proparites
+    var reachability: Reachability?
+    var networkAvaiability = true
     var allCountries = [SearchCountryModel.CountryModel]()
     var myVavoriteCountries = [SearchCountryModel.CountryModel]()
     var realmCharacters : [RealmCountryModel] = []
@@ -30,11 +34,12 @@ class SearchCountryViewController: UIViewController, CLLocationManagerDelegate {
     var hostIndex = 0
     let locationManager = CLLocationManager()
 
+         // MARK: - outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var favoritesTableView: UITableView!
     
-    
+         // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -46,20 +51,21 @@ class SearchCountryViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-    }
-    
+
     func getCountries(){
         reachability = try? Reachability()
         if let reachable = reachability?.isReachable{
             switch reachable {
             case true:
                 print(reachable)
-           //     interactor?.getAllCountries()
+                networkAvaiability = true
             case false:
                 print(reachable)
+                networkAvaiability = false
+                self.realmCharacters = RealmManager.shared.getObjectOf(type: RealmCountryModel.self)
+                let unique = Array(Set(realmCharacters))
+                      realmCharacters = unique
+                favoritesTableView.reloadData()
             }
         }
       
@@ -78,68 +84,12 @@ extension SearchCountryViewController {
     }
 }
 
-extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSource {
-       func registerTableCell() {
-         let cell = UINib(nibName: "SearchTableViewCell", bundle: nil)
-         tableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
-        favoritesTableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
-     }
-    
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.tableView{
-            return allCountries.count
-        }
-        else {
-            return myVavoriteCountries.count
 
-        }
-     }
-    
-    
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
-        
-        if tableView == self.tableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
-             cell.name.text = self.allCountries[indexPath.row].name
-             cell.addToFavorite.tag = indexPath.row
-            cell.addToFavorite.addTarget(self, action: #selector(addToFavorite(_:)), for: .touchUpInside)
-            return cell
-        }
-        else {
-            let cellF = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
-            cellF.name.text = self.myVavoriteCountries[indexPath.row].name
-            cellF.addToFavorite.backgroundColor = .red
-            cellF.addToFavorite.setTitle("remove from list", for: .normal)
-            cellF.addToFavorite.tag = indexPath.row
-            cellF.addToFavorite.addTarget(self, action: #selector(removeFromList(_:)), for: .touchUpInside)
-            return cellF
-        }
-   
+extension SearchCountryViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
-    
-    @objc func addToFavorite(_ sender: UIButton){
-   
-        myVavoriteCountries.append(allCountries[sender.tag])
-        let unique = Array(Set(myVavoriteCountries))
-        myVavoriteCountries = unique
-        favoritesTableView.reloadData()
-        tableView.hide()
-    }
-    @objc func removeFromList(_ sender: UIButton){
-        myVavoriteCountries.remove(at: sender.tag)
-        
-        favoritesTableView.reloadData()
-    }
-
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-   
-}
-
-extension SearchCountryViewController {
     
     func getCurrentCountryInfo(){
         // Ask for Authorisation from the User.
@@ -176,18 +126,8 @@ extension SearchCountryViewController: ISearchCountryViewController {
         guard let data = countries else {
             return
         }
-    
         for country in data {
             allCountries.append(country)
-            let realmObject = RealmCountryModel()
-            realmObject._name = country.name!
-            realmObject._capital = country.capital!
-            realmObject.currencies = "\(String(describing: country.currencies?[0].name!))"
-            RealmManager.shared.addObject(realmObject: realmObject , andCompletion : {
-                (addResult) in
-                print(addResult)
-            } )
-
         }
         let unique = Array(Set(allCountries))
         allCountries = unique
@@ -219,5 +159,4 @@ extension SearchCountryViewController: UISearchBarDelegate {
     }
     
 }
-
 

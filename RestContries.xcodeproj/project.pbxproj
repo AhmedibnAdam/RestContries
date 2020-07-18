@@ -44,6 +44,7 @@
 		66A18E7424C339A3005B2819 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A18E7224C339A3005B2819 /* RealmManager.swift */; };
 		66A18E7524C339A3005B2819 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A18E7324C339A3005B2819 /* RealmExtension.swift */; };
 		66A18E7824C33A30005B2819 /* CountryRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A18E7724C33A30005B2819 /* CountryRealmModel.swift */; };
+		66A18E7A24C35B57005B2819 /* ViewTablesEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A18E7924C35B57005B2819 /* ViewTablesEx.swift */; };
 		757C8F08122E52FEB76616A5 /* Pods_RestContries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C66DDB739D1DA293543BAE9 /* Pods_RestContries.framework */; };
 		8A60DE5B5597D2CD8A4E0274 /* Pods_RestContries_RestContriesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E82E65B506CB119789F2FCE0 /* Pods_RestContries_RestContriesUITests.framework */; };
 		C7B578DCB2C81524D5D36851 /* Pods_RestContriesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22F75D7329E0E834EA5540D /* Pods_RestContriesTests.framework */; };
@@ -112,6 +113,7 @@
 		66A18E7224C339A3005B2819 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		66A18E7324C339A3005B2819 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		66A18E7724C33A30005B2819 /* CountryRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRealmModel.swift; sourceTree = "<group>"; };
+		66A18E7924C35B57005B2819 /* ViewTablesEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTablesEx.swift; sourceTree = "<group>"; };
 		8613B59DC5D44659192BD31E /* Pods-RestContries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestContries.release.xcconfig"; path = "Target Support Files/Pods-RestContries/Pods-RestContries.release.xcconfig"; sourceTree = "<group>"; };
 		8E57DBD1D40B11DCC4684870 /* Pods-RestContriesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestContriesTests.debug.xcconfig"; path = "Target Support Files/Pods-RestContriesTests/Pods-RestContriesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C3849DF41E5D9FE500E0F4 /* Pods-RestContries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestContries.debug.xcconfig"; path = "Target Support Files/Pods-RestContries/Pods-RestContries.debug.xcconfig"; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				66688A6424C11F8800F93471 /* SearchCountryViewController.swift */,
 				66688A6724C11F8800F93471 /* SearchCountryViewController.xib */,
 				66688AA424C1E88100F93471 /* reachabilityEx.swift */,
+				66A18E7924C35B57005B2819 /* ViewTablesEx.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				66688A8624C1209500F93471 /* SelectedCountryRouter.swift in Sources */,
 				66688A8524C1209500F93471 /* SelectedCountryWorker.swift in Sources */,
 				66688A6D24C11F8800F93471 /* SearchCountryInteractor.swift in Sources */,
+				66A18E7A24C35B57005B2819 /* ViewTablesEx.swift in Sources */,
 				66688A1C24C111D700F93471 /* ViewController.swift in Sources */,
 				66688A9724C122D800F93471 /* SelectedCountryModel.swift in Sources */,
 				66688A9F24C1DC2000F93471 /* SearchTableViewCell.swift in Sources */,
