@@ -26,7 +26,10 @@ class SearchCountryInteractor: ISearchCountryInteractor {
     	self.worker = worker
     }
     func getAllCountries() {
-        worker?.getAllCountries(complition: { (error, success, countries) in
+        guard let parameters = parameters else {
+            return
+        }
+        worker?.getAllCountries(parameters: parameters,complition: { (error, success, countries) in
             if success {
                 self.presenter?.showCountries(countries: countries)
             }

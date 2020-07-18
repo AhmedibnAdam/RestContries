@@ -13,14 +13,14 @@ import Alamofire
 
 enum SearchCountryEndpoint {
    
-     case allCountries
+    case searchountries(parameters:[String: Any])
    
 }
 
 extension SearchCountryEndpoint: IEndpoint {
     var method: HTTPMethod {
         switch self {
-        case .allCountries:
+        case .searchountries:
             return .get
         }
        
@@ -34,15 +34,20 @@ extension SearchCountryEndpoint: IEndpoint {
         
 
         switch self {
-        case .allCountries:
-            return Constant.base + Constant.api + Constant.version + "regionalbloc/EU"
+        case .searchountries(let parameters):
+            if let name = parameters["name"]{
+                let originalString = Constant.base + Constant.api + Constant.version + "name/\(name)"
+                let urlString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                return urlString
+            }
+            return ""
         }
     }
     
     var parameter: Parameters? {
        
         switch self {
-        case .allCountries:
+        case .searchountries:
             return nil
         }
         
@@ -51,7 +56,7 @@ extension SearchCountryEndpoint: IEndpoint {
     var header: HTTPHeaders? {
 
         switch self {
-        case .allCountries:
+        case .searchountries:
             return nil
         }
       
@@ -60,7 +65,7 @@ extension SearchCountryEndpoint: IEndpoint {
     var encoding: ParameterEncoding {        
 
         switch self {
-        case .allCountries:
+        case .searchountries:
             return JSONEncoding.default
         }
 

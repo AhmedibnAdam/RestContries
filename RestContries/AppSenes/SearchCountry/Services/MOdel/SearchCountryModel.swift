@@ -12,43 +12,38 @@ import UIKit
 
 struct SearchCountryModel {	
 
-    // MARK: - CountryModel
-    struct CountryModel: Codable {
+   // MARK: - CountryModel
+    struct CountryModel: Codable , Hashable {
+     
+        
         let name: String?
-        let topLevelDomain: [String]?
-        let alpha2Code, alpha3Code: String?
-        let callingCodes: [String]?
         let capital: String?
-        let altSpellings: [String]?
-        let region, subregion: String?
-        let population: Int?
-        let latlng: [Double]?
-        let demonym: String?
-        let area: Int?
-        let gini: Double?
-        let timezones, borders: [String]?
-        let nativeName, numericCode: String?
         let currencies: [Currency]?
-        let languages: [Language]?
-        let flag: String?
-        let cioc: String?
+
+ 
     }
 
     // MARK: - Currency
-    struct Currency: Codable {
+    struct Currency: Codable , Hashable {
         let code, name, symbol: String?
     }
 
     // MARK: - Language
-    struct Language: Codable {
+    struct Language: Codable , Hashable  {
         let iso6391, iso6392, name, nativeName: String?
 
         enum CodingKeys: String, CodingKey {
-            case iso6391 = "iso639_1"
-            case iso6392 = "iso639_2"
+            case iso6391
+            case iso6392
             case name, nativeName
         }
     }
+
+
+
+
+
+
 
 }
 

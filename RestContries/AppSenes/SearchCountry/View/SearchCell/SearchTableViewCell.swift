@@ -10,6 +10,8 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var addToFavorite: UIButton!
+    @IBOutlet weak var name: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
