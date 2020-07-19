@@ -15,14 +15,14 @@ protocol ISearchCountryRouter: class {
 }
 
 class SearchCountryRouter: ISearchCountryRouter {	
-	weak var view: SearchCountryViewController?
-	
-	init(view: SearchCountryViewController?) {
-		self.view = view
-	}
+    weak var view: SearchCountryViewController?
+    
+    init(view: SearchCountryViewController?) {
+        self.view = view
+    }
     
     func navigateToSelectedCountry(parameters: [String: Any]){
-      
+        
         view?.navigate(type: .push, module: GeneralRoute.selectedCountry(parameter: parameters), completion: nil)
     }
 }

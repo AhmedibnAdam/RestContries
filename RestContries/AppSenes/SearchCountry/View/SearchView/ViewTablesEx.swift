@@ -19,7 +19,7 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
                 return myVavoriteCountries.count
             }
             else {
-                return realmCharacters.count
+                return cashedCountries.count
             }
         }
     }
@@ -40,7 +40,7 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
                 cellF.name.text = self.myVavoriteCountries[indexPath.row].name
             }
             else{
-                cellF.name.text = self.realmCharacters[indexPath.row].name
+                cellF.name.text = self.cashedCountries[indexPath.row].name
             }
             cellF.addToFavorite.backgroundColor = .red
             cellF.addToFavorite.setTitle("remove from list", for: .normal)
@@ -58,14 +58,20 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         myVavoriteCountries = unique
         for country in myVavoriteCountries {
             allCountries.append(country)
-            self.interactor?.getFromCashed(country: country )
+            self.interactor?.addCountryToCash(country: country )
             
         }
         favoritesTableView.reloadData()
         tableView.hide()
     }
     @objc func removeFromList(_ sender: UIButton){
+        if networkAvaiability {
         myVavoriteCountries.remove(at: sender.tag)
+        }else{
+             let country = self.cashedCountries[sender.tag]
+            self.interactor?.removeCountryFromCash(country: country )
+            cashedCountries.remove(at: sender.tag)
+        }
         
         favoritesTableView.reloadData()
     }

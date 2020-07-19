@@ -11,21 +11,21 @@
 import UIKit
 
 protocol ISearchCountryInteractor: class {
-	var parameters: [String: Any]? { get set }
+    var parameters: [String: Any]? { get set }
     func getAllCountries()
-    func getFromCashed(country: SearchCountryModel.CountryModel )
+    func addCountryToCash(country: SearchCountryModel.CountryModel )
+    func removeCountryFromCash(country: RealmCountryModel )
 }
 
 class SearchCountryInteractor: ISearchCountryInteractor {
- 
-
+    
     var presenter: ISearchCountryPresenter?
     var worker: ISearchCountryWorker?
     var parameters: [String: Any]?
-
+    
     init(presenter: ISearchCountryPresenter, worker: ISearchCountryWorker) {
-    	self.presenter = presenter
-    	self.worker = worker
+        self.presenter = presenter
+        self.worker = worker
     }
     func getAllCountries() {
         guard let parameters = parameters else {
@@ -41,7 +41,7 @@ class SearchCountryInteractor: ISearchCountryInteractor {
         })
     }
     
-    func getFromCashed(country: SearchCountryModel.CountryModel) {
+    func addCountryToCash(country: SearchCountryModel.CountryModel) {
         
         let realmObject = RealmCountryModel()
         guard let name = country.name else {
@@ -60,8 +60,12 @@ class SearchCountryInteractor: ISearchCountryInteractor {
             (addResult) in
             print(addResult)
         } )
-        
     }
-     
-    
+    func removeCountryFromCash(country: RealmCountryModel ){
+        
+        RealmManager.shared.removeObject(realmObject: country , andCompletion : {
+            (result) in
+            print(result)
+        } )
+    }
 }

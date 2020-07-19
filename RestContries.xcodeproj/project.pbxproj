@@ -233,10 +233,10 @@
 			isa = PBXGroup;
 			children = (
 				66688A8F24C120DF00F93471 /* Configuration */,
+				66688A8B24C120B300F93471 /* View */,
 				66688A9024C120F300F93471 /* Presenter */,
 				66688A8D24C120CA00F93471 /* Services */,
 				66688A8E24C120D500F93471 /* Router */,
-				66688A8B24C120B300F93471 /* View */,
 				66688A8C24C120BC00F93471 /* Interactor */,
 			);
 			path = SelectedCountry;

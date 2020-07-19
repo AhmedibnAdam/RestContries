@@ -28,7 +28,7 @@ class SearchCountryViewController: UIViewController {
     var networkAvaiability = true
     var allCountries = [SearchCountryModel.CountryModel]()
     var myVavoriteCountries = [SearchCountryModel.CountryModel]()
-    var realmCharacters : [RealmCountryModel] = []
+    var cashedCountries : [RealmCountryModel] = []
     var myCountry: SearchCountryModel.CountryModel?
     let hostNames = [nil, "restcountries.eu", "invalidhost"]
     var hostIndex = 0
@@ -62,10 +62,7 @@ class SearchCountryViewController: UIViewController {
             case false:
                 print(reachable)
                 networkAvaiability = false
-                self.realmCharacters = RealmManager.shared.getObjectOf(type: RealmCountryModel.self)
-                let unique = Array(Set(realmCharacters))
-                realmCharacters = unique
-                favoritesTableView.reloadData()
+                getCountriesFromCashing()
             }
         }
         
@@ -87,6 +84,13 @@ extension SearchCountryViewController {
           tableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
          favoritesTableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
       }
+    
+    func getCountriesFromCashing(){
+        self.cashedCountries = RealmManager.shared.getObjectOf(type: RealmCountryModel.self)
+        let unique = Array(Set(cashedCountries))
+        cashedCountries = unique
+        favoritesTableView.reloadData()
+    }
 }
 
 
@@ -118,8 +122,8 @@ extension SearchCountryViewController: CLLocationManagerDelegate{
                 print(place.country!)
                 print(place.name!)
                 self.myCountry = SearchCountryModel.CountryModel(name: place.country!,
-                                                                 capital: "No data about capital",
-                                                                 currencies: [SearchCountryModel.Currency(code: "No curancy", name: "No curancy", symbol: "")] )
+                                                                 capital: "no data ",
+                                                                 currencies: [SearchCountryModel.Currency(code: "no data ", name: "no data ", symbol: "")] )
                 self.myVavoriteCountries.append(self.myCountry!)
                 self.favoritesTableView.reloadData()
             }

@@ -11,39 +11,29 @@
 import UIKit
 
 struct SearchCountryModel {	
-
-   // MARK: - CountryModel
+    
+    // MARK: - CountryModel
     struct CountryModel: Codable , Hashable {
-     
-        
         let name: String?
         let capital: String?
         let currencies: [Currency]?
-
- 
     }
-
+    
     // MARK: - Currency
     struct Currency: Codable , Hashable {
         let code, name, symbol: String?
     }
-
+    
     // MARK: - Language
     struct Language: Codable , Hashable  {
         let iso6391, iso6392, name, nativeName: String?
-
+        
         enum CodingKeys: String, CodingKey {
             case iso6391
             case iso6392
             case name, nativeName
         }
     }
-
-
-
-
-
-
 
 }
 

@@ -12,9 +12,9 @@ import Foundation
 import Alamofire
 
 enum SearchCountryEndpoint {
-   
+    
     case searchountries(parameters:[String: Any])
-   
+    
 }
 
 extension SearchCountryEndpoint: IEndpoint {
@@ -23,16 +23,12 @@ extension SearchCountryEndpoint: IEndpoint {
         case .searchountries:
             return .get
         }
-       
-        
     }
     var image: UIImage? {
-          return nil
-      }
+        return nil
+    }
     
     var path: String {
-        
-
         switch self {
         case .searchountries(let parameters):
             if let name = parameters["name"]{
@@ -45,7 +41,7 @@ extension SearchCountryEndpoint: IEndpoint {
     }
     
     var parameter: Parameters? {
-       
+        
         switch self {
         case .searchountries:
             return nil
@@ -54,20 +50,18 @@ extension SearchCountryEndpoint: IEndpoint {
     }
     
     var header: HTTPHeaders? {
-
+        
         switch self {
         case .searchountries:
             return nil
         }
-      
     }
     
     var encoding: ParameterEncoding {        
-
+        
         switch self {
         case .searchountries:
             return JSONEncoding.default
         }
-
     }
 }

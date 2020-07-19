@@ -30,16 +30,16 @@ class SelectedCountryViewController: UIViewController {
         setupNavigationBar()
         showData()
     }
+
+}
+
+extension SelectedCountryViewController: ISelectedCountryViewController {
     func showData(){
         guard let capital = parameters?["capital"] else { return  }
         guard let currency = parameters?["currency"] else { return  }
         self.capital.text = capital as? String
         self.currency.text = currency as? String
     }
-}
-
-extension SelectedCountryViewController: ISelectedCountryViewController {
-	// do someting...
 }
 
 extension SelectedCountryViewController {
@@ -51,6 +51,3 @@ extension SelectedCountryViewController {
        }
 }
 
-extension SelectedCountryViewController {
-	// do someting...
-}

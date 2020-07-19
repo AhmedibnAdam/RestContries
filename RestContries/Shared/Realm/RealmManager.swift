@@ -45,4 +45,18 @@ class RealmManager {
             return []
         }
     }
+    
+   func removeObject(realmObject: Object, andCompletion compleion: addRealmObjectCompletionType){
+        do { let realm = try Realm()
+            try realm.write {
+                realm.delete(realmObject)
+                compleion(.success)
+            }
+        }
+        catch {
+            print(error)
+            compleion(.fail)
+        }
+    }
+
 }

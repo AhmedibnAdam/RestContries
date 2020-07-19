@@ -16,7 +16,6 @@ protocol ISearchCountryPresenter: class {
 
 class SearchCountryPresenter: ISearchCountryPresenter {
     
-    
     weak var view: ISearchCountryViewController?
     
     init(view: ISearchCountryViewController?) {

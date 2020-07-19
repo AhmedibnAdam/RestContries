@@ -9,9 +9,6 @@
 import Foundation
 import RealmSwift
 
-
-
-
 class RealmCountryModel: Object{
     @objc public dynamic var name: String = ""
     @objc public dynamic var capital: String = ""
