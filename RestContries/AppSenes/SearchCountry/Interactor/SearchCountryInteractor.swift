@@ -36,7 +36,7 @@ class SearchCountryInteractor: ISearchCountryInteractor {
                 self.presenter?.showCountries(countries: countries)
             }
             else {
-                
+                self.presenter?.showCountries(countries: nil)
             }
         })
     }

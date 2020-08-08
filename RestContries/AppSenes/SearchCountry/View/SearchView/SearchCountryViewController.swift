@@ -9,7 +9,6 @@
 //              * https://github.com/AhmedibnAdam
 
 import UIKit
-import Reachability
 import CoreLocation
 
 protocol ISearchCountryViewController: class {
@@ -24,54 +23,28 @@ class SearchCountryViewController: UIViewController {
     var router: ISearchCountryRouter?
     
     // MARK: - proparites
-    var reachability: Reachability?
     var networkAvaiability = true
     var allCountries = [SearchCountryModel.CountryModel]()
     var myVavoriteCountries = [SearchCountryModel.CountryModel]()
     var cashedCountries : [RealmCountryModel] = []
     var myCountry: SearchCountryModel.CountryModel?
-    let hostNames = [nil, "restcountries.eu", "invalidhost"]
-    var hostIndex = 0
     let locationManager = CLLocationManager()
     
+    var tableData = 0
     // MARK: - outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var favoritesTableView: UITableView!
+    //    @IBOutlet weak var favoritesTableView: UITableView!
     
     // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         registerTableCell()
-        startHost(at: 0)
         getCurrentCountryInfo()
-        getCountries()
         searchBar.delegate = self
         
     }
-    
-    
-    func getCountries(){
-        reachability = try? Reachability()
-        if let reachable = reachability?.isReachable{
-            switch reachable {
-            case true:
-                print(reachable)
-                networkAvaiability = true
-            case false:
-                print(reachable)
-                networkAvaiability = false
-                getCountriesFromCashing()
-            }
-        }
-        
-    }
-    
-    deinit {
-        stopNotifier()
-    }
-    
 }
 
 
@@ -80,16 +53,16 @@ extension SearchCountryViewController {
         navigationItem.title = "Countries"
     }
     func registerTableCell() {
-          let cell = UINib(nibName: "SearchTableViewCell", bundle: nil)
-          tableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
-         favoritesTableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
-      }
+        let cell = UINib(nibName: "SearchTableViewCell", bundle: nil)
+        tableView.register(cell, forCellReuseIdentifier: "SearchTableViewCell")
+    }
     
     func getCountriesFromCashing(){
         self.cashedCountries = RealmManager.shared.getObjectOf(type: RealmCountryModel.self)
         let unique = Array(Set(cashedCountries))
+        tableData = 2
         cashedCountries = unique
-        favoritesTableView.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -117,22 +90,22 @@ extension SearchCountryViewController: CLLocationManagerDelegate{
             CLGeocoder().reverseGeocodeLocation(location, preferredLocale: nil) { (clPlacemark: [CLPlacemark]?, error: Error?) in
                 guard let place = clPlacemark?.first else {
                     print("No placemark from Apple: \(String(describing: error))")
+                    self.interactor?.parameters?["name"] = "Egypt"
+                    self.interactor?.getAllCountries()
                     return
                 }
                 print(place.country!)
                 print(place.name!)
-                self.myCountry = SearchCountryModel.CountryModel(name: place.country!,
-                                                                 capital: "no data ",
-                                                                 currencies: [SearchCountryModel.Currency(code: "no data ", name: "no data ", symbol: "")] )
-                self.myVavoriteCountries.append(self.myCountry!)
-                self.favoritesTableView.reloadData()
+                self.interactor?.parameters?["name"] = place.name!
+                self.interactor?.getAllCountries()
             }
         }else{
             self.myCountry = SearchCountryModel.CountryModel(name: "Egypt",
-                                                                            capital: "Cairo",
-                                                                            currencies: [SearchCountryModel.Currency(code: "EGP", name: "Egyption Pound", symbol: "")] )
-                           self.myVavoriteCountries.append(self.myCountry!)
-                           self.favoritesTableView.reloadData()
+                                                             capital: "Cairo",
+                                                             currencies: [SearchCountryModel.Currency(code: "EGP", name: "Egyption Pound", symbol: "")] )
+            self.interactor?.parameters?["name"] = "Egypt"
+            self.interactor?.getAllCountries()
+            
         }
     }
 }
@@ -142,6 +115,8 @@ extension SearchCountryViewController: CLLocationManagerDelegate{
 extension SearchCountryViewController: ISearchCountryViewController {
     func showCountries(countries: [SearchCountryModel.CountryModel]?) {
         guard let data = countries else {
+            getCountriesFromCashing()
+            networkAvaiability = false
             return
         }
         for country in data {
@@ -149,6 +124,7 @@ extension SearchCountryViewController: ISearchCountryViewController {
         }
         let unique = Array(Set(allCountries))
         allCountries = unique
+        tableData = 0
         tableView.reloadData()
     }
     
@@ -159,20 +135,20 @@ extension SearchCountryViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchBar.text?.count)! > 2 {
-            tableView.show()
             interactor?.parameters?["name"] = searchText
+            tableData = 0
             interactor?.getAllCountries()
         }
         else {
             allCountries.removeAll()
-            tableView.hide()
+            tableData = 1
             tableView.reloadData()
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         allCountries.removeAll()
-        tableView.hide()
+        tableData = 1
         tableView.reloadData()
     }
     

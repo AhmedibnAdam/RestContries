@@ -6,7 +6,6 @@ target 'RestContries' do
   use_frameworks!
   
   pod 'IQKeyboardManagerSwift'
-  pod 'ReachabilitySwift'
   pod 'Alamofire', '~> 4.9.1'
   pod 'SwiftyJSON'
    pod 'RealmSwift'

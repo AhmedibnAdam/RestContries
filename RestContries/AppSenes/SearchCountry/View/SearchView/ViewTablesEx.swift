@@ -9,45 +9,52 @@
 import UIKit
 
 extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSource {
-        
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.tableView{
+        if tableData == 0{
             return allCountries.count
         }
-        else {
-            if networkAvaiability {
-                return myVavoriteCountries.count
-            }
-            else {
-                return cashedCountries.count
-            }
+        else if tableData == 1 {
+            return myVavoriteCountries.count
         }
+        else{
+            return cashedCountries.count
+        }
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if tableView == self.tableView {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
+        if tableData == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
             cell.name.text = self.allCountries[indexPath.row].name
+            cell.addToFavorite.backgroundColor = .green
+            cell.addToFavorite.setTitle("add to favorite", for: .normal)
             cell.addToFavorite.tag = indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(addToFavorite(_:)), for: .touchUpInside)
             return cell
         }
-        else {
-            let cellF = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
-            if networkAvaiability{
-                cellF.name.text = self.myVavoriteCountries[indexPath.row].name
-            }
-            else{
-                cellF.name.text = self.cashedCountries[indexPath.row].name
-            }
-            cellF.addToFavorite.backgroundColor = .red
-            cellF.addToFavorite.setTitle("remove from list", for: .normal)
-            cellF.addToFavorite.tag = indexPath.row
-            cellF.addToFavorite.addTarget(self, action: #selector(removeFromList(_:)), for: .touchUpInside)
-            return cellF
+        else if tableData == 1 {
+            
+            cell.name.text = self.myVavoriteCountries[indexPath.row].name
+            
+            cell.addToFavorite.backgroundColor = .red
+            cell.addToFavorite.setTitle("remove from list", for: .normal)
+            cell.addToFavorite.tag = indexPath.row
+            cell.addToFavorite.addTarget(self, action: #selector(removeFromList(_:)), for: .touchUpInside)
+            return cell
         }
+        else{
+            cell.name.text = self.cashedCountries[indexPath.row].name
+            
+            cell.addToFavorite.backgroundColor = .red
+            cell.addToFavorite.setTitle("remove from list", for: .normal)
+            cell.addToFavorite.tag = indexPath.row
+            cell.addToFavorite.addTarget(self, action: #selector(removeFromList(_:)), for: .touchUpInside)
+            return cell
+        }
+        
         
     }
     
@@ -61,29 +68,30 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
             self.interactor?.addCountryToCash(country: country )
             
         }
-        favoritesTableView.reloadData()
-        tableView.hide()
+        tableData = 1
+        tableView.reloadData()
+        
     }
     @objc func removeFromList(_ sender: UIButton){
         if networkAvaiability {
-        myVavoriteCountries.remove(at: sender.tag)
+            myVavoriteCountries.remove(at: sender.tag)
         }else{
-             let country = self.cashedCountries[sender.tag]
+            let country = self.cashedCountries[sender.tag]
             self.interactor?.removeCountryFromCash(country: country )
             cashedCountries.remove(at: sender.tag)
         }
         
-        favoritesTableView.reloadData()
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == self.favoritesTableView {
-         let country = self.myVavoriteCountries[indexPath.row]
-
+        if tableData == 1{
+            let country = self.myVavoriteCountries[indexPath.row]
+            
             let parameters: [String : Any]  = ["name": country.name,
-                          "currency": country.currencies?[0].name,
-                          "capital":country.capital]
+                                               "currency": country.currencies?[0].name,
+                                               "capital":country.capital]
             router?.navigateToSelectedCountry(parameters: parameters)
-    }
+        }
     }
 }

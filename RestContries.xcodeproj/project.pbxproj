@@ -39,7 +39,6 @@
 		66688A9924C122F100F93471 /* SearchCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A9824C122F100F93471 /* SearchCountryModel.swift */; };
 		66688A9F24C1DC2000F93471 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688A9D24C1DC2000F93471 /* SearchTableViewCell.swift */; };
 		66688AA024C1DC2000F93471 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66688A9E24C1DC2000F93471 /* SearchTableViewCell.xib */; };
-		66688AA524C1E88100F93471 /* reachabilityEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688AA424C1E88100F93471 /* reachabilityEx.swift */; };
 		66688AA724C1F30400F93471 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688AA624C1F30300F93471 /* Constant.swift */; };
 		66688B6524C2B8BF00F93471 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66688B6424C2B8BF00F93471 /* UITableView.swift */; };
 		66A18E7424C339A3005B2819 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A18E7224C339A3005B2819 /* RealmManager.swift */; };
@@ -109,7 +108,6 @@
 		66688A9824C122F100F93471 /* SearchCountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCountryModel.swift; sourceTree = "<group>"; };
 		66688A9D24C1DC2000F93471 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		66688A9E24C1DC2000F93471 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
-		66688AA424C1E88100F93471 /* reachabilityEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reachabilityEx.swift; sourceTree = "<group>"; };
 		66688AA624C1F30300F93471 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		66688B6424C2B8BF00F93471 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		66A18E7224C339A3005B2819 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -450,7 +448,6 @@
 			children = (
 				66688A6424C11F8800F93471 /* SearchCountryViewController.swift */,
 				66688A6724C11F8800F93471 /* SearchCountryViewController.xib */,
-				66688AA424C1E88100F93471 /* reachabilityEx.swift */,
 				66A18E7924C35B57005B2819 /* ViewTablesEx.swift */,
 			);
 			path = SearchView;
@@ -758,7 +755,6 @@
 				66688A6B24C11F8800F93471 /* SearchCountryRouter.swift in Sources */,
 				66688A5B24C114BD00F93471 /* AppRoute.swift in Sources */,
 				66688A8824C1209500F93471 /* SelectedCountryInteractor.swift in Sources */,
-				66688AA524C1E88100F93471 /* reachabilityEx.swift in Sources */,
 				66A18E7424C339A3005B2819 /* RealmManager.swift in Sources */,
 				66688A1824C111D700F93471 /* AppDelegate.swift in Sources */,
 				66688A5D24C114D900F93471 /* GeneralRoute.swift in Sources */,

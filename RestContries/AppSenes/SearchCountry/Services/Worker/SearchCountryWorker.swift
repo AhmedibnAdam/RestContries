@@ -26,10 +26,12 @@ class SearchCountryWorker: ISearchCountryWorker {
                 
             } catch let error {
                 print(error)
+                complition(nil, true, nil)
             }
             
         }) { (error) in
             print(error as Any)
+             complition(nil, true, nil)
         }
     }
 }

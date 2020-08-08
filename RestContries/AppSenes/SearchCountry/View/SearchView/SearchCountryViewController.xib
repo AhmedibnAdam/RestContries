@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchCountryViewController" customModule="RestContries" customModuleProvider="target">
             <connections>
-                <outlet property="favoritesTableView" destination="f2l-Y6-Ps5" id="qxW-JO-tjx"/>
                 <outlet property="searchBar" destination="bsA-nu-fjx" id="LG5-EW-BYL"/>
                 <outlet property="tableView" destination="N8l-9U-jGu" id="8Yl-cM-0Y6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,15 +32,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f2l-Y6-Ps5">
-                    <rect key="frame" x="20" y="136.5" width="335" height="530.5"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="AaF-4o-QDa"/>
-                        <outlet property="delegate" destination="-1" id="xZj-AS-nJP"/>
-                    </connections>
-                </tableView>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N8l-9U-jGu">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N8l-9U-jGu">
                     <rect key="frame" x="20" y="76" width="335" height="591"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
@@ -54,17 +45,13 @@
             <constraints>
                 <constraint firstItem="N8l-9U-jGu" firstAttribute="top" secondItem="bsA-nu-fjx" secondAttribute="bottom" id="0Ft-ls-LjG"/>
                 <constraint firstItem="N8l-9U-jGu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="DPQ-ln-FKb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f2l-Y6-Ps5" secondAttribute="trailing" constant="20" id="O6v-Dh-HQd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N8l-9U-jGu" secondAttribute="trailing" constant="20" id="Ww9-pc-onE"/>
                 <constraint firstItem="IH9-K5-CzH" firstAttribute="top" secondItem="bsA-nu-fjx" secondAttribute="bottom" constant="20" id="ZLT-aU-fde"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bsA-nu-fjx" secondAttribute="trailing" constant="20" id="bp1-Wg-nVi"/>
                 <constraint firstItem="IH9-K5-CzH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="etC-Tc-V6v"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="N8l-9U-jGu" secondAttribute="bottom" id="gpR-e9-C3p"/>
-                <constraint firstItem="f2l-Y6-Ps5" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="hHJ-BG-6kt"/>
                 <constraint firstItem="bsA-nu-fjx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="ih6-dd-gj8"/>
-                <constraint firstItem="f2l-Y6-Ps5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rFF-Sp-qfe"/>
                 <constraint firstItem="bsA-nu-fjx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yJ5-0C-Vgt"/>
-                <constraint firstItem="f2l-Y6-Ps5" firstAttribute="top" secondItem="IH9-K5-CzH" secondAttribute="bottom" constant="20" id="yYF-Co-AUJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="140" y="145.27736131934034"/>
